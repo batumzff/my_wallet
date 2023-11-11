@@ -1,0 +1,36 @@
+body {
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 20%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 80%
+  );
+}
+
+.container-form {
+    border: 2px groove ;
+    border-radius: 10px;
+}
+label {
+  font-size: 20px;
+  color: #264653;
+  font-weight: 600;
+}
+button {
+  font-weight: 700 !important;
+}
+table {
+  background-color: #264653;
+}
+
+.custom {
+  color: #9a031e !important;
+  font-weight: 400;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  background-color: #dfd9e2;
+  font-weight: 400 !important;
+}
