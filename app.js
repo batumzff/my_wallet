@@ -23,17 +23,12 @@ formGelir.addEventListener("submit", (e) => {
 window.addEventListener("load", () => {
   gelirler = Number(localStorage.getItem("gelirler"));
   calculateExpense();
-  expenseArray = 
-    JSON.parse(localStorage.getItem("expenses")) || [];
-    
-
+  expenseArray = JSON.parse(localStorage.getItem("expenses")) || [];
 });
 
 formGider.addEventListener("submit", (e) => {
   e.preventDefault();
   if (expenseArea.value && expenseValue.value) {
-
-    
     const newRow = document.createElement("tr");
     const expenseDate = document.createElement("td");
     const expenseAlani = document.createElement("td");
@@ -44,8 +39,8 @@ formGider.addEventListener("submit", (e) => {
       date.value || `${new Date().toISOString().slice(0, 10)}`;
     expenseAlani.textContent = expenseArea.value;
     expenseCount.textContent = expenseValue.value;
-    expenseProcess.textContent = "❌";  
-    expenseProcess.classList.add = "erase";
+    expenseProcess.textContent = "❌";
+    expenseProcess.classList.add("erase");
     expenseProcess.style.cursor = "pointer";
 
     mainTable.lastElementChild.appendChild(newRow);
@@ -84,9 +79,10 @@ const calculateExpense = () => {
 
 document.querySelector(".clear").addEventListener("click", (e) => {
   console.log(e.target);
-  e.target.parentNode.querySelector(
+  e.target.querySelector(
     ".expenseTable"
   ).lastElementChild.innerHTML = "";
+  
   gelirler = 0;
 
   localStorage.clear();
@@ -97,7 +93,7 @@ document.querySelector(".clear").addEventListener("click", (e) => {
 });
 
 mainTable.addEventListener("click", (e) => {
-  if ((e.target.className = "erase")) {
+  if ((e.target.classList.contains("erase") )) {
     e.target.parentNode.remove();
     giderler = giderler - Number(e.target.previousElementSibling.textContent);
     kalan = gelirler - giderler;
