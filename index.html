@@ -1,129 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wallet app</title>
-    <link rel="shortcut icon" href="./wallet-filled-money-tool.png" type="image/x-icon">
-    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Wallet App</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./wallet-filled-money-tool.png" type="image/x-icon">
   </head>
-  <body class="p-3" >
-    <header class="text-center mt-3">
-      <h1 class="display-3  ">My Wallet App 💳</h1>
+  <body>
+    <header class="text-warning text-center display-5 my-4">
+      My Wallet App 💳
     </header>
 
-    <div class="container-form">
-        <form class="container expense-form mb-3 pb-2 pt-2  ">
-            <h3 class="h3 text-center">Harcama Formu</h3>
-            <div class="row">
-              <div class="mb-3 col-6">
-                <label for="exampleInputEmail1" class="form-label">Tarih</label>
-                <input
-                  type="date"
-                  class="form-control date"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <div class="mb-3 col-6">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Harcama Miktarı</label
-                >
-                <input
-                title="harcama miktarı"
-                id="expense"
-                  type="number"
-                  placeholder="1000  &#8378"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                />
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Harcama Alanı</label>
-              <input
-              title="harcama alanı"
-                type="text"
-                class="area form-control"
-                placeholder="Kira, Fatura, Kredi Kartı"
-                id="exampleInputPassword1"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary  d-block m-auto">
-              Kaydet
-            </button>
-          </form>
-      
-          <form action="" class="income-form container gap-3 p-3 row m-auto">
-            <input
-            id="income"
-              type="Number"
-              class="form-control col"
-              placeholder="Gelirinizi giriniz"
-              id="exampleInputPassword1"
-            />
-      
-            <button type="submit" class="btn add-btn btn-success col-2">Ekle</button>
-          </form>
-      
-          <div class="container div1 mt-3">
-            <table class="table table-danger table-hover  expenseTable table-sm table-bordered table-striped text-center">
-              <thead>
-                <tr>
-                  <th scope="col">Tarih</th>
-                  <th scope="col">Harcama Alanı</th>
-                  <th scope="col">Miktar</th>
-                  <th scope="col">İşlem</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-              </tbody>
-            </table>
-          </div>
-      
-          <div class="container  d-flex justify-content-end">
-            <table class="table table-info table-bordered table-striped text-end table-sm w-50">
-              <tbody>
-                <tr>
-                  <th class="incomes">Geliriniz (&#8378)</th>
-                  <td class="incomes--prices">0.00</td>
-                </tr>
-                <tr>
-                  <th class="expenses">Gideriniz (&#8378)</th>
-                  <td class="expenses--prices">0.00</td>
-                </tr>
-                <tr>
-                  <th class="budgets">Kalan(&#8378)</th>
-                  <td class="budgets--prices">0.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-      
-          <button
-            type="submit"
-            style="width: 200px"
-            class="clear btn d-block mb-3 m-auto btn-secondary col-1"
-          >
-            Bilgileri Temizle
+    <main class="container" style="max-width: 800px">
+
+
+      <form id="harcama-formu" class="row g-3 p-3 mt-4 border rounded-4 m-0">
+        <h4 class="text-center">Harcama Formu</h4>
+        <div class="col-6">
+          <label for="tarih" class="form-label">Tarih</label>
+          <input type="date" class="form-control" id="tarih" required />
+        </div>
+        <div class="col-6">
+          <label for="miktar" class="form-label">Harcama Miktar</label>
+          <input
+            type="number"
+            class="form-control"
+            id="miktar"
+            placeholder="1000 ₺"
+            step="0.01"
+            min="0"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <label for="harcama-alani" class="form-label">Harcama Alanı</label>
+          <input
+            type="text"
+            class="form-control"
+            id="harcama-alani"
+            placeholder="Kira, Fatura, Kredi Kartı"
+            required
+          />
+        </div>
+
+
+        <div class="col-12 text-center">
+          <button id="kaydet" type="submit" class="btn btn-danger">
+            Kaydet
           </button>
-    </div>
-    
+        </div>
+      </form>
+      <br>
+      <form id="ekle-formu" class="d-flex gap-2">
+        <input
+          id="gelir-input"
+          class="form-control"
+          type="number"
+          step="0.01"
+          min="0"
+          autofocus
+          placeholder="Gelirinizi giriniz."
+          required
+        />
+        <button id="ekle-btn" type="submit" class="btn btn-success">
+          Ekle
+        </button>
+      </form>
+      <table
+        id="harcama-tablosu"
+        class="table table-bordered table-hover table-striped mt-4 text-center"
+      >
+        <thead>
+          <tr>
+            <th scope="col" class="w-25">Tarih</th>
+            <th scope="col" class="w-50">Harcama Alanı</th>
+            <th scope="col">Miktar (₺)</th>
+            <th scope="col">İşlem</th>
+          </tr>
+        </thead>
+        <tbody id="harcama-body">
+          <!-- <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <table
+        id="sonuc-tablosu"
+        class="table table-bordered table-hover table-striped mt-4 text-center w-50 ms-auto"
+      >
+        <tbody class="text-end">
+          <tr>
+            <th>Geliriniz (₺) :</th>
+            <td id="geliriniz" style="width: 100px;">0</td>
+          </tr>
+          <tr>
+            <th>Gideriniz (₺) :</th>
+            <td id="gideriniz">0</td>
+          </tr>
+          <tr>
+            <th id="kalanTh">Kalan (₺) :</th>
+            <td id="kalan">0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="text-center">
+        <button id="temizle-btn" class="btn btn-secondary">
+          Bilgileri Temizle
+        </button>
+      </section>
+    </main>
 
     <script src="app.js"></script>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
