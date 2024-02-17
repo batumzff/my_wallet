@@ -1,4 +1,7 @@
 ## About the Project
+<div align="center">
+  <img src="my-wallet.gif" />
+</div>
 
 "My Wallet App" is a simple web application for tracking income and expenses. Users can add their income and record their expenses to keep track of their financial activities.
 
